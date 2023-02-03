@@ -4,8 +4,11 @@ const ctx = canvas.getContext("2d");
 const birdImage = new Image();
 birdImage.src = "../images/bird.png";
 
-const pipeImage = new Image();
-pipeImage.src = "../images/pipes.png";
+let upPipe = new Image();
+upPipe.src = "../images/pipesUp.png";
+
+let downPipe = new Image();
+downPipe.src = "../images/pipesDown.png";
 
 const bgImage = new Image();
 bgImage.src = "../images/bg.png";
@@ -74,8 +77,8 @@ function draw() {
   ctx.drawImage(birdImage, bird.x, bird.y, bird.width, bird.height);
 
   for (let i = 0; i < pipes.length; i++) {
-    ctx.drawImage(pipeImage, pipes[i].x, 0, pipes[i].width, pipes[i].y);
-    ctx.drawImage(pipeImage, pipes[i].x, pipes[i].y + pipes[i].height, pipes[i].width, canvas.height);
+    ctx.drawImage(downPipe, pipes[i].x, 0, pipes[i].width, pipes[i].y);
+    ctx.drawImage(upPipe, pipes[i].x, pipes[i].y + pipes[i].height, pipes[i].width, canvas.height);
   }
 
   ctx.fillStyle = "black";
